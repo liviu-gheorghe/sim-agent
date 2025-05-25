@@ -1,0 +1,10 @@
+{
+  "name": "myapp",
+  "version": "1.0.0",
+  "scripts": {
+    "heroku-postbuild": "npx playwright install"
+  },
+  "dependencies": {
+    "playwright": "^1.43.0"
+  }
+}
