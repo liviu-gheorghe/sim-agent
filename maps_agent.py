@@ -169,4 +169,5 @@ async def run_agents(req: RunRequest):
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("maps_agent:app", host="0.0.0.0", port=5000, reload=True)
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run("maps_agent:app", host="0.0.0.0", port=port, reload=True)
