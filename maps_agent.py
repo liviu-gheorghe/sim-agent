@@ -70,7 +70,7 @@ async def run_business_agent(mcp_server: MCPServerStdio, address: str, radius: i
         mcp_servers=[mcp_server],
         model="gpt-4.1-nano",
         instructions=(
-            f"You are a Google Maps agent tasked with identifying businesses in {" or ".join(industries)} within a {radius}m "
+            f"You are a Google Maps agent tasked with identifying businesses in {' or '.join(industries)} within a {radius}m "
             f"radius around {address}. For each business, return:\n"
             "- location_name (string)\n"
             "- latitude (float)\n"
@@ -85,7 +85,7 @@ async def run_business_agent(mcp_server: MCPServerStdio, address: str, radius: i
     )
 
     prompt = (
-        f"Identify and return a list of all the businesses in {" or ".join(industries)} in a {radius} meter radius near {address}."
+        f"Identify and return a list of all the businesses in {' or '.join(industries)} in a {radius} meter radius near {address}."
     )
 
     result = await Runner.run(agent, prompt, max_turns=15)
@@ -133,7 +133,7 @@ async def run_agents(req: RunRequest):
                 model="gpt-4.1",
                 instructions=(
                     f"You are a Google Maps agent tasked with finding a location in {req.comparison_city} "
-                    f"that has a similar business composition regarding {" or ".join(req.industries)} to a provided "
+                    f"that has a similar business composition regarding {' or '.join(req.industries)} to a provided "
                     f"list."
                     "Your output must include:\n"
                     "- center_latitude (float)\n"
